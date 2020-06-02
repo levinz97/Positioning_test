@@ -1,28 +1,16 @@
-package com.example.positioning;
+package com.example.Mypositioning;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.HandlerThread;
 import android.os.IBinder;
-import android.os.Process;
-import android.os.RemoteException;
-import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.alternativevision.gpx.GPXParser;
 import org.alternativevision.gpx.beans.GPX;
@@ -33,7 +21,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.logging.Logger;
 
 import org.alternativevision.gpx.beans.Track;
 
@@ -41,7 +28,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 public class LocationService extends Service {
-    static double local_speed,local_distance;
+    static float local_speed,local_distance;
     static Location local_location;
 
     private LocationServiceImpl impl;
@@ -123,7 +110,8 @@ public class LocationService extends Service {
                 travelTime += Math.abs(date2.getTime() - date1.getTime());
                 travelDistance += distance(lastLocation, location);
 //                sendBroadcastMessage(location, travelDistance, avgSpeed(travelDistance, travelTime));
-                local_distance =travelDistance;
+                local_distance = travelDistance;
+                Log.i("positionlocal", String.valueOf(local_distance));
                 local_speed = avgSpeed(travelDistance,travelTime);
                 local_location = location;
 
@@ -215,7 +203,7 @@ public class LocationService extends Service {
                 intent.putExtra(EXTRA_DISTANCE, local_distance);
                 intent.putExtra(EXTRA_AVG_SPEED, local_speed);
                 sendBroadcast(intent);
-                Log.i("intent", String.valueOf(intent.getDoubleExtra(EXTRA_LATITUDE,0)));
+                Log.i("positionintent", String.valueOf(intent.getDoubleExtra(EXTRA_DISTANCE,0)));
             }
         }
     }

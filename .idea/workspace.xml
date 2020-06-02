@@ -6,8 +6,8 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="positionreceiver" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="positioning" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
@@ -150,22 +150,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591054106299" />
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1591113193127">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1591119472093">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591113193127" />
-    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1591113193127">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591119472093" />
+    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1591119472092">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591113193127" />
-    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1591113193126">
+    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591119472092" />
+    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1591119472092">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591113193126" />
-    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1591113193127">
+    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591119472092" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1591119472092">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591113193127" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591119472092" />
     <state width="1493" height="166" key="GridCell.Tab.1.bottom" timestamp="1591053795560">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -198,9 +198,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="447" y="145" width="642" height="534" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1590994939594" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1591082183166">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1591119231080">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1591082183166" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1591119231080" />
   </component>
 </project>

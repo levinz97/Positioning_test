@@ -1,42 +1,24 @@
-package com.example.positioning;
+package com.example.Mypositioning;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.ActivityManager;
-import android.app.AlertDialog;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
-import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.alternativevision.gpx.GPXParser;
-import org.alternativevision.gpx.beans.GPX;
-
-import java.io.FileOutputStream;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ServiceConnection {
     Button stBtn, stopBtn, uptBtn, exitBtn;
@@ -45,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     BroadcastListener broadcastListener;
 
     private ILocationService iLocationServiceProxy = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         broadcastListener = new BroadcastListener();
         this.registerReceiver(
-               broadcastListener, new IntentFilter(LocationService.ACTION_LOCATION_BROADCAST)
+                broadcastListener, new IntentFilter(LocationService.ACTION_LOCATION_BROADCAST)
         );
 
         uptBtn.setOnClickListener(this);
@@ -77,30 +60,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("SetTextI18n")
     @Override
     public void onClick(View v) {
-        intent = new Intent(this,LocationService.class);
-        switch (v.getId()){
+        intent = new Intent(this, LocationService.class);
+        switch (v.getId()) {
             case R.id.stBtn:
                 startService(intent);
-                bindService(intent,this,BIND_AUTO_CREATE);
+                bindService(intent, this, BIND_AUTO_CREATE);
                 break;
             case R.id.stopBtn:
                 Log.e("Cancel", String.valueOf(isMyServiceRunning(LocationService.class)));
-                laTxt.setText("Latitude: " );
-                loTxt.setText("Longitude: " );
-                disTxt.setText("Distance: " );
-                spTxt.setText("Average Speed: " );
-                if (isMyServiceRunning(LocationService.class)){
+                laTxt.setText("Latitude: ");
+                loTxt.setText("Longitude: ");
+                disTxt.setText("Distance: ");
+                spTxt.setText("Average Speed: ");
+                if (isMyServiceRunning(LocationService.class)) {
                     unbindService(this);
                 }
                 break;
             case R.id.exitBtn:
+                if (isMyServiceRunning(LocationService.class)) {
+                    unbindService(this);
+                }
                 stopService(intent);
-                unbindService(this);
                 unregisterReceiver(broadcastListener);
                 finish();
                 break;
             case R.id.uptBtn:
-                Log.i("uptBtn","clicked");
+                Log.i("uptBtn", "clicked");
                 try {
                     iLocationServiceProxy.askUpdates();
                 } catch (RemoteException e) {
@@ -129,7 +114,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     @SuppressLint("NewApi")
     protected void askPermissions() {
         String[] permissions = {
@@ -144,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     protected boolean shouldAskPermissions() {
-        return (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED );
+        return (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED);
 
     }
 
@@ -160,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onServiceConnected(ComponentName name, IBinder service) {
-        Log.i("connection","connected");
+        Log.i("connection", "connected");
         iLocationServiceProxy = ILocationService.Stub.asInterface(service);
     }
 

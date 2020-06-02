@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.positioning">
+    package="com.example.Mypositioning">
 
     <application
         android:allowBackup="true"
@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.Mypositioning.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <service
-            android:name=".LocationService"
+            android:name="com.example.Mypositioning.LocationService"
             android:enabled="true"
             android:exported="true"
             android:process=":remote"/>
-        <receiver android:name=".BroadcastListener"  android:exported="true">
+        <receiver android:name="com.example.Mypositioning.BroadcastListener"  android:exported="true">
             <intent-filter>
                 <action android:name="LocationService.ACTION_LOCATION_BROADCAST" />
             </intent-filter>

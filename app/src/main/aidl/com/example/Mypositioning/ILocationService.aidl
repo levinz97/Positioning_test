@@ -1,5 +1,5 @@
 // ILocationService.aidl
-package com.example.positioning;
+package com.example.Mypositioning;
 
 // Declare any non-default types here with import statements
 

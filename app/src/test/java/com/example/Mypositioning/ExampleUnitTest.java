@@ -1,4 +1,4 @@
-package com.example.positioning;
+package com.example.Mypositioning;
 
 import org.junit.Test;
 
